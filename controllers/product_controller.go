@@ -82,7 +82,7 @@ func CreateProduct(c *gin.Context) {
 // UploadProductImage uploads image for a specific product
 func UploadProductImage(c *gin.Context) {
 	productID := c.Param("id")
-	
+
 	// Parse UUID
 	productUUID, err := uuid.Parse(productID)
 	if err != nil {
@@ -217,7 +217,7 @@ func GetAllProducts(c *gin.Context) {
 // GetProductByID retrieves a single product by ID
 func GetProductByID(c *gin.Context) {
 	productID := c.Param("id")
-	
+
 	// Parse UUID
 	productUUID, err := uuid.Parse(productID)
 	if err != nil {
@@ -260,7 +260,7 @@ func GetProductByID(c *gin.Context) {
 // UpdateProduct updates an existing product
 func UpdateProduct(c *gin.Context) {
 	productID := c.Param("id")
-	
+
 	// Parse UUID
 	productUUID, err := uuid.Parse(productID)
 	if err != nil {
@@ -355,7 +355,7 @@ func UpdateProduct(c *gin.Context) {
 // DeleteProduct soft deletes a product
 func DeleteProduct(c *gin.Context) {
 	productID := c.Param("id")
-	
+
 	// Parse UUID
 	productUUID, err := uuid.Parse(productID)
 	if err != nil {
@@ -394,7 +394,7 @@ func DeleteProduct(c *gin.Context) {
 // GetProductCategories retrieves all unique product categories
 func GetProductCategories(c *gin.Context) {
 	var categories []string
-	
+
 	if err := config.DB.Model(&models.Product{}).
 		Distinct("category").
 		Where("category != ''").
